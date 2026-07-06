@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GradePilot - GPA & CGPA Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-transition">
+  <!-- Navigation -->
+  <header class="navbar glass">
+    <div class="logo">🎓 GradePilot</div>
+    <nav class="nav-links">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#gpa">Calculator</a>
+      <a href="#predictor">Predictor</a>
+      <a href="#history">History</a>
+      <a href="#settings">Settings</a>
+    </nav>
+    <button id="theme-toggle" class="icon-btn">🌙</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <div class="hero-text">
+      <h1>Calculate GPA Smarter.</h1>
+      <p>Track, predict, and achieve your academic goals with a premium dashboard experience.</p>
+      <div class="hero-actions">
+        <button class="primary-btn">Start Calculating</button>
+        <button class="secondary-btn">Predict CGPA</button>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <div class="illustration glass"></div>
+    </div>
+  </section>
+
+  <!-- Dashboard Statistics -->
+  <section id="dashboard" class="stats-grid slide-up">
+    <div class="stat-card glass success card-hover">
+      <div class="icon">📊</div>
+      <h2 id="semester-gpa">--</h2>
+      <p>Current GPA</p>
+    </div>
+    <div class="stat-card glass accent card-hover">
+      <div class="icon">🌐</div>
+      <h2 id="overall-cgpa">--</h2>
+      <p>Overall CGPA</p>
+    </div>
+    <div class="stat-card glass warning card-hover">
+      <div class="icon">🎯</div>
+      <h2 id="total-credits">--</h2>
+      <p>Total Credits</p>
+    </div>
+    <div class="stat-card glass card-hover">
+      <div class="progress-circle" id="progress-circle"></div>
+      <p>CGPA Progress</p>
+    </div>
+  </section>
+
+  <!-- GPA Calculator -->
+  <section id="gpa" class="calculator glass fade-in">
+    <h2>GPA Calculator</h2>
+    <div class="subject-form">
+      <input type="text" id="subject" placeholder="Subject Name">
+      <input type="number" id="credits" placeholder="Credits">
+      <select id="grade">
+        <option value="">Grade</option>
+        <option value="10">O</option>
+        <option value="9">A+</option>
+        <option value="8">A</option>
+        <option value="7">B+</option>
+        <option value="6">B</option>
+        <option value="5">C</option>
+        <option value="0">F</option>
+      </select>
+      <button onclick="addSubject()" class="primary-btn">+ Add Subject</button>
+    </div>
+    <div id="subjects-list" class="subject-cards"></div>
+    <div class="sticky-actions">
+      <button onclick="calculateGPA()" class="primary-btn">Calculate GPA</button>
+      <button onclick="resetSemester()" class="danger-btn">Reset Semester</button>
+    </div>
+    <p id="gpa-result"></p>
+  </section>
+
+  <!-- CGPA Timeline -->
+  <section id="cgpa" class="calculator glass slide-up">
+    <h2>CGPA Timeline</h2>
+    <div id="semesters-timeline" class="timeline"></div>
+    <button onclick="calculateCGPA()" class="primary-btn">Calculate CGPA</button>
+    <p id="cgpa-result"></p>
+  </section>
+
+  <!-- Predictor -->
+  <section id="predictor" class="calculator glass fade-in predictor">
+    <h2>What If CGPA Predictor</h2>
+    <div class="predictor-grid">
+      <div class="inputs">
+        <input type="number" id="current-cgpa" placeholder="Current CGPA">
+        <input type="number" id="completed-credits" placeholder="Completed Credits">
+        <input type="number" id="future-credits" placeholder="Future Credits">
+        <input type="number" id="expected-gpa" placeholder="Expected GPA">
+        <input type="number" id="remaining-sems" placeholder="Remaining Semesters">
+        <button onclick="predictCGPA()" class="primary-btn">Predict</button>
+      </div>
+      <div class="result-card glass card-hover">
+        <div class="progress-circle" id="prediction-circle"></div>
+        <p id="prediction-result"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer glass">
+    <p>© 2026 GradePilot | Built with ❤️ | <a href="#">GitHub</a> | v1.0 | Privacy</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
